@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import Input from '../../components/Input'
 import { useUserContext } from '../../hooks/useUser'
@@ -13,12 +13,18 @@ function EditUser() {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
+  useEffect(() => {
+    if (currentUser?.id) {
+      setId(currentUser.id)
+    }
+  }, [currentUser])
+
   function handleSubmit() {
     if (password !== confirmPassword) {
       alert('Senhas não conferem')
       return
     }
-    if (!currentUser?.master || !currentUser?.token) {
+    if (!currentUser?.token) {
       alert('Não autorizado')
       return
     }
@@ -35,10 +41,6 @@ function EditUser() {
     })
   }
 
-  if (!currentUser?.master) {
-    return <h1>Not allowed</h1>
-  }
-
   return (
     <>
       <Header />
@@ -49,11 +51,13 @@ function EditUser() {
           margin: '4rem 0',
         }}
       >
-        <Input
-          onChange={(e) => setId(parseInt(e.target.value))}
-          type="text"
-          placeholder="ID"
-        />
+        {currentUser?.master && (
+          <Input
+            onChange={(e) => setId(parseInt(e.target.value))}
+            type="text"
+            placeholder="ID"
+          />
+        )}
         <Input
           onChange={(e) => setName(e.target.value)}
           type="text"

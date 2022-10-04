@@ -11,6 +11,8 @@ function Header() {
       <div style={{ display: 'flex', gap: '2rem' }}>
         <h4>Login</h4>
         <h4>Editar Usuário</h4>
+        <h4>Cadastrar Usuário</h4>
+        <h4>Apagar Usuário</h4>
       </div>
     </div>
   )
