@@ -26,9 +26,6 @@ function Home() {
         .replace(/\s/g, '')
         .split(',')
 
-      console.log(searchItems.every((item) => ingredientList.includes(item)))
-      console.log(searchItems, ingredientList)
-
       return searchItems.every((item) => ingredientList.includes(item))
     })
   }, [ads, search])
