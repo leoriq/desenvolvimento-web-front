@@ -1,4 +1,4 @@
-# Exame Programação Web
+# Exame Programação Web - Frontend
 
 Este projeto foi criado para o exame de suficiência da disciplina de programação web.
 
