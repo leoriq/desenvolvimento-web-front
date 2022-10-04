@@ -69,7 +69,7 @@ function CreatePost() {
         <Input
           onChange={(e) => setIngredients(e.target.value)}
           type="imageId"
-          placeholder="Ingredientes"
+          placeholder="Ingredientes (separados por vírgula)"
         />
         <Input
           onChange={(e) => setValue(parseFloat(e.target.value))}
