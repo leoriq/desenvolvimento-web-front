@@ -1,3 +1,5 @@
+import { Comment } from './Comment'
+
 export interface Ad {
   id: number
   name: string
@@ -15,4 +17,5 @@ export interface Ad {
     url: string
     path: string
   }
+  comments: Comment[]
 }

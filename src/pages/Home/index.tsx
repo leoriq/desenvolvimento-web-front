@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import Header from '../../components/Header'
 import Input from '../../components/Input'
+import Post from '../../components/Post'
 import { Ad } from '../../models/Ad'
 import api from '../../services/api'
 
@@ -49,12 +50,7 @@ function Home() {
         </form>
         {filteredAds?.map((ad) => (
           <div key={ad.id}>
-            <h2>{ad.name}</h2>
-            <p>{ad.user.name}</p>
-            <p>{ad.description}</p>
-            {ad.image && <img src={ad.image.url} alt={ad.name} />}
-            <p>{ad.ingredients}</p>
-            <p>{`R$ ${ad.value}`}</p>
+            <Post ad={ad} />
           </div>
         ))}
       </div>
